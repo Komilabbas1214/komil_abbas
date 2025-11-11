@@ -1,0 +1,6 @@
+css applay color four way
+<!-- https://htmlcolorcodes.com
+<p style="color:red">Hi i am color name property<p>
+<p style="color:#fa6e8"> Hi i am color hexa property</p>
+<p style="color:rgb(64,15,232,0.5)Hi i am color rgb 0-255 property</p>
+<p style=color:hsl
