@@ -1,0 +1,154 @@
+/* Global Variables and Styles */
+:root {
+    --brand-color: #ff5722; /* Vibrant Orange for Delivery */
+    --brand-hover: #e64a19;
+    --light-brand: rgba(255, 87, 34, 0.1);
+    --dark-bg: #1c1c1c;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* Typography Utilities */
+.text-brand { color: var(--brand-color) !important; }
+.bg-brand { background-color: var(--brand-color) !important; }
+.bg-light-brand { background-color: var(--light-brand) !important; }
+.tracking-wider { letter-spacing: 2px; }
+.max-w-700 { max-width: 700px; }
+
+/* Buttons */
+.btn-brand {
+    background-color: var(--brand-color);
+    border: none;
+    transition: all 0.3s ease;
+}
+.btn-brand:hover {
+    background-color: var(--brand-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 87, 34, 0.3) !important;
+}
+
+/* Navbar */
+.navbar {
+    transition: all 0.3s ease;
+}
+.navbar.shadow {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px);
+}
+.nav-link {
+    font-size: 1.05rem;
+    transition: color 0.3s ease;
+}
+.nav-link:hover, .nav-link.active {
+    color: var(--brand-color) !important;
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 80vh;
+    background: url('https://images.unsplash.com/photo-1616423640778-28d1b53229bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+    position: relative;
+}
+.hero-section .overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.65);
+}
+.tracking-box {
+    max-width: 500px;
+}
+.tracking-box .form-control:focus {
+    box-shadow: none;
+}
+.tracking-btn {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+
+/* CTA Section */
+.cta-section {
+    background: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center bottom/cover;
+    position: relative;
+}
+.cta-section .overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255, 87, 34, 0.85); /* Orange tint */
+}
+
+/* Services */
+.service-card {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: default;
+}
+.service-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08) !important;
+}
+.icon-box {
+    width: 70px;
+    height: 70px;
+    transition: all 0.3s ease;
+}
+.service-card:hover .icon-box {
+    background-color: var(--brand-color) !important;
+    color: white !important;
+}
+.service-card a {
+    transition: margin-left 0.3s ease;
+}
+.service-card:hover a {
+    margin-left: 5px;
+}
+
+/* Steps */
+.step-circle {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+    position: relative;
+    z-index: 2;
+}
+.d-flex:not(:last-child) .flex-shrink-0 {
+    position: relative;
+}
+.d-flex:not(:last-child) .flex-shrink-0::after {
+    content: '';
+    position: absolute;
+    top: 45px;
+    left: 22px;
+    bottom: -15px;
+    width: 2px;
+    background: #e0e0e0;
+    z-index: 1;
+}
+
+/* Footer Link */
+.footer-link {
+    transition: color 0.3s ease;
+}
+.footer-link:hover {
+    color: var(--brand-color) !important;
+}
+
+/* Animations */
+.slide-up {
+    animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+    transform: translateY(40px);
+}
+.slide-up-delay {
+    animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+    opacity: 0;
+    transform: translateY(40px);
+}
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

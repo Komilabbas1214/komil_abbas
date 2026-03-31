@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastDrop - Reliable Delivery Services</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar Section -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3 text-brand" href="#">
+                <i class="bi bi-truck text-brand me-2"></i>FastDrop
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link active fw-medium" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium" href="#track">Track Order</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium" href="#book">Book Delivery</a>
+                    </li>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                        <a class="btn btn-brand rounded-pill px-4 py-2 text-white fw-semibold shadow-sm w-100" href="#contact">Sign In</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section d-flex align-items-center position-relative">
+        <div class="overlay"></div>
+        <div class="container position-relative z-1 text-white">
+            <div class="row">
+                <div class="col-lg-7 slide-up">
+                    <span class="badge bg-brand text-white px-3 py-2 rounded-pill mb-3 fw-medium">#1 Delivery Service</span>
+                    <h1 class="display-3 fw-bold mb-4 lh-base">Swift & Secure Delivery to Your Doorstep.</h1>
+                    <p class="lead mb-5 fs-4 text-light opacity-75">Whether it's a small package or a large shipment, we deliver it safely and on time, every time.</p>
+                    
+                    <!-- Tracking Box -->
+                    <div class="tracking-box bg-white p-3 rounded-pill shadow-lg d-flex slide-up-delay">
+                        <input type="text" class="form-control border-0 bg-transparent px-4 py-2" placeholder="Enter your tracking number..." aria-label="Tracking Number">
+                        <button class="btn btn-brand rounded-pill px-4 py-2 fw-semibold text-white tracking-btn text-nowrap" type="button">Track Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats Section -->
+    <section class="stats-section bg-brand text-white py-5">
+        <div class="container py-3">
+            <div class="row text-center g-4">
+                <div class="col-md-3 col-6">
+                    <h2 class="display-5 fw-bold mb-0">1M+</h2>
+                    <p class="mb-0 text-white-50 fw-medium">Parcels Delivered</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <h2 class="display-5 fw-bold mb-0">50K+</h2>
+                    <p class="mb-0 text-white-50 fw-medium">Happy Customers</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <h2 class="display-5 fw-bold mb-0">120+</h2>
+                    <p class="mb-0 text-white-50 fw-medium">Cities Covered</p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <h2 class="display-5 fw-bold mb-0">24/7</h2>
+                    <p class="mb-0 text-white-50 fw-medium">Support Available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h6 class="text-brand fw-bold text-uppercase tracking-wider">Our Services</h6>
+                <h2 class="fw-bold fs-1">What We Offer For You</h2>
+            </div>
+            <div class="row g-4 mt-2">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm service-card p-4 rounded-4 bg-white">
+                        <div class="icon-box bg-light-brand text-brand rounded-circle d-flex align-items-center justify-content-center mb-4">
+                            <i class="bi bi-box-seam fs-3"></i>
+                        </div>
+                        <h4 class="card-title fw-semibold mb-3">Express Delivery</h4>
+                        <p class="card-text text-muted">Get your packages delivered within 24 hours in selected major cities with full priority.</p>
+                        <a href="#" class="text-brand text-decoration-none fw-semibold mt-auto d-inline-flex align-items-center">Read More <i class="bi bi-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm service-card p-4 rounded-4 bg-white">
+                        <div class="icon-box bg-light-brand text-brand rounded-circle d-flex align-items-center justify-content-center mb-4">
+                            <i class="bi bi-globe-americas fs-3"></i>
+                        </div>
+                        <h4 class="card-title fw-semibold mb-3">Global Shipping</h4>
+                        <p class="card-text text-muted">We handle international shipping with customs clearance to over 100+ countries worldwide.</p>
+                        <a href="#" class="text-brand text-decoration-none fw-semibold mt-auto d-inline-flex align-items-center">Read More <i class="bi bi-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm service-card p-4 rounded-4 bg-white">
+                        <div class="icon-box bg-light-brand text-brand rounded-circle d-flex align-items-center justify-content-center mb-4">
+                            <i class="bi bi-shield-lock fs-3"></i>
+                        </div>
+                        <h4 class="card-title fw-semibold mb-3">Secure Handling</h4>
+                        <p class="card-text text-muted">Fragile or valuable? Our specially trained staff ensures your items are completely safe.</p>
+                        <a href="#" class="text-brand text-decoration-none fw-semibold mt-auto d-inline-flex align-items-center">Read More <i class="bi bi-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-5">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0 pe-lg-5">
+                    <img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Delivery Van" class="img-fluid rounded-4 shadow-lg slide-up">
+                </div>
+                <div class="col-lg-6">
+                    <h6 class="text-brand fw-bold text-uppercase tracking-wider">Process</h6>
+                    <h2 class="fw-bold fs-1 mb-4">How It Works in 3 Steps</h2>
+                    
+                    <div class="d-flex mb-4">
+                        <div class="flex-shrink-0">
+                            <div class="step-circle bg-brand text-white fw-bold d-flex align-items-center justify-content-center shadow rounded-circle">1</div>
+                        </div>
+                        <div class="ms-4">
+                            <h5 class="fw-semibold">Book Your Delivery</h5>
+                            <p class="text-muted mb-0">Enter the pickup and drop-off locations online or via our app along with package details.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex mb-4">
+                        <div class="flex-shrink-0">
+                            <div class="step-circle bg-brand text-white fw-bold d-flex align-items-center justify-content-center shadow rounded-circle">2</div>
+                        </div>
+                        <div class="ms-4">
+                            <h5 class="fw-semibold">We Pick It Up</h5>
+                            <p class="text-muted mb-0">Our professional courier will arrive at your location to securely pick up your package.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex">
+                        <div class="flex-shrink-0">
+                            <div class="step-circle bg-brand text-white fw-bold d-flex align-items-center justify-content-center shadow rounded-circle">3</div>
+                        </div>
+                        <div class="ms-4">
+                            <h5 class="fw-semibold">Fast Delivery</h5>
+                            <p class="text-muted mb-0">Your package is safely delivered to the destination, and you get instantly notified.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="book" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="card border-0 shadow-lg rounded-4 overflow-hidden slide-up">
+                        <div class="row g-0">
+                            <!-- Image Left -->
+                            <div class="col-md-5 d-none d-md-block position-relative" style="background: url('https://images.unsplash.com/photo-1586528116311-ad8ed7c80a30?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center center/cover;">
+                                <div class="overlay position-absolute top-0 start-0 w-100 h-100" style="background: rgba(255,87,34,0.75);"></div>
+                                <div class="position-absolute bottom-0 start-0 p-5 text-white z-1 w-100">
+                                    <h3 class="fw-bold mb-2">Fast. Secure.</h3>
+                                    <p class="mb-0 text-white-75">Your cargo is safe with us.</p>
+                                </div>
+                            </div>
+                            <!-- Form Right -->
+                            <div class="col-md-7 p-4 p-lg-5 bg-white">
+                                <h6 class="text-brand fw-bold text-uppercase tracking-wider mb-2">Book Now</h6>
+                                <h2 class="fw-bold fs-2 mb-4">Request a Delivery</h2>
+                                <form id="bookingForm">
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <div class="form-floating text-muted position-relative">
+                                                <input type="text" class="form-control rounded-3 pe-5" id="pickup" placeholder="Pickup Location" required>
+                                                <label for="pickup"><i class="bi bi-geo-alt me-2"></i>Pickup</label>
+                                                <button type="button" class="btn position-absolute top-50 end-0 translate-middle-y me-1 text-brand border-0" id="locateMeBtn" title="Use current location" style="opacity: 0.8;">
+                                                    <i class="bi bi-crosshair"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 position-relative">
+                                            <div class="form-floating text-muted">
+                                                <input type="text" class="form-control rounded-3" id="dropoff" placeholder="Drop-off Location" autocomplete="off" required>
+                                                <label for="dropoff"><i class="bi bi-geo me-2"></i>Drop-off</label>
+                                            </div>
+                                            <ul class="dropdown-menu w-100 shadow rounded-3 border-0 mt-1" id="dropoffSuggestions" style="max-height: 250px; overflow-y: auto; z-index: 1050;">
+                                                <!-- Autocomplete items -->
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating text-muted">
+                                                <select class="form-select rounded-3" id="packageType" aria-label="Package Type" required>
+                                                    <option value="" selected>Select Type...</option>
+                                                    <option value="document">Document (Fast Track)</option>
+                                                    <option value="box">Box/Parcel (Standard)</option>
+                                                    <option value="fragile">Fragile Item (Careful Handling)</option>
+                                                    <option value="freight">Heavy Freight (Trucking)</option>
+                                                </select>
+                                                <label for="packageType"><i class="bi bi-box me-2"></i>Package Type</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating text-muted">
+                                                <input type="number" class="form-control rounded-3" id="weight" placeholder="Weight (kg)" min="0.1" step="0.1" required>
+                                                <label for="weight"><i class="bi bi-speedometer2 me-2"></i>Weight (kg)</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mt-4">
+                                            <button type="submit" id="calculateBtn" class="btn btn-brand btn-lg w-100 rounded-pill text-white fw-bold shadow-sm d-flex justify-content-center align-items-center">
+                                                <span>Calculate & Book</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section py-5 text-center text-white position-relative">
+        <div class="overlay"></div>
+        <div class="container position-relative z-1 py-5">
+            <h2 class="display-5 fw-bold mb-4">Ready to send your first package?</h2>
+            <p class="lead mb-5 opacity-75 max-w-700 mx-auto">Join thousands of businesses and individuals who trust FastDrop for their daily delivery needs.</p>
+            <a href="#" class="btn btn-brand btn-lg rounded-pill px-5 text-white fw-bold shadow-lg">Get Started Now</a>
+        </div>
+    </section>
+
+    <!-- Booking Confirmation Modal -->
+    <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+                <div class="modal-header bg-brand text-white rounded-top-4 border-0">
+                    <h5 class="modal-title fw-bold" id="bookingModalLabel"><i class="bi bi-check-circle-fill me-2"></i>Booking Confirmed</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <p class="text-muted mb-4">Your delivery request has been successfully processed! Here are the details:</p>
+                    
+                    <div class="d-flex mb-3">
+                        <div class="text-brand fs-4 me-3"><i class="bi bi-geo-alt-fill"></i></div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Pickup From</h6>
+                            <p class="mb-0 text-muted" id="modalPickup">Pending</p>
+                        </div>
+                    </div>
+                    
+                    <div class="ms-3 mb-3 border-start border-2 border-primary" style="height: 20px; border-style: dashed !important; border-color: #ff5722 !important; opacity: 0.5;"></div>
+                    
+                    <div class="d-flex mb-4">
+                        <div class="text-brand fs-4 me-3"><i class="bi bi-geo-fill"></i></div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Drop-off To</h6>
+                            <p class="mb-0 text-muted" id="modalDropoff">Pending</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-light p-3 rounded-3 mb-2">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-muted">Package Details:</span>
+                            <span class="fw-semibold" id="modalDetails">-</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span class="text-muted">Estimated Time:</span>
+                            <span class="fw-semibold text-success">Within 24 Hours</span>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between align-items-center mt-4 pt-3 border-top">
+                        <h5 class="fw-bold mb-0">Total Price</h5>
+                        <h3 class="fw-bold text-brand mb-0" id="modalPrice">$0.00</h3>
+                    </div>
+                </div>
+                <div class="modal-footer border-0 pb-4 px-4">
+                    <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-brand rounded-pill px-4" data-bs-dismiss="modal" onclick="alert('Payment Gateway Integration Pending!')">Proceed to Payment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light pt-5 pb-4">
+        <div class="container pt-4">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h4 class="fw-bold mb-4"><i class="bi bi-truck text-brand me-2"></i>FastDrop</h4>
+                    <p class="text-muted pe-lg-4">The most reliable and fast delivery service for your personal and business needs, operating globally with ease.</p>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="fw-bold mb-4">Company</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none footer-link">About Us</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none footer-link">Careers</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none footer-link">Blog</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="fw-bold mb-4">Services</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none footer-link">Express Delivery</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none footer-link">Freight Shipping</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none footer-link">Warehouse Storage</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none footer-link">E-commerce Delivery</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="fw-bold mb-4">Contact</h5>
+                    <ul class="list-unstyled text-muted">
+                        <li class="mb-3"><i class="bi bi-geo-alt-fill text-brand me-2"></i> 123 Logistics Ave, NY 10001</li>
+                        <li class="mb-3"><i class="bi bi-telephone-fill text-brand me-2"></i> +1 (555) 123-4567</li>
+                        <li class="mb-3"><i class="bi bi-envelope-fill text-brand me-2"></i> support@fastdrop.com</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary mt-4 mb-4">
+            <div class="text-center text-muted">
+                <p class="mb-0">&copy; 2026 FastDrop Logistics. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmxc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>
