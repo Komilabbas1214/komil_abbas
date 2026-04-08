@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Guest Registration</title>
+
+  <!-- Bootstrap CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+  <div class="card shadow p-4">
+    
+    <h3 class="text-center mb-4">Guest Registration Form</h3>
+        <div id="messageBox"></div>
+    <form id="guestForm">
+
+      <div class="row">
+        
+        <!-- Full Name -->
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Full Name</label>
+          <input type="text"  id="name" class="form-control" placeholder="Enter full name" required>
+        </div>
+
+        <!-- Phone -->
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Phone Number</label>
+          <input type="tel" id="phone"class="form-control" placeholder="Enter phone number" required>
+        </div>
+
+        <!-- Email -->
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Email Address</label>
+          <input type="email" id="email" class="form-control" placeholder="Enter email">
+        </div>
+
+        <!-- Aadhar -->
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Aadhar Card Number</label>
+          <input type="number" id="aadhar"  class="form-control" placeholder="Enter Aadhar number" required>
+        </div>
+
+        <!-- Address -->
+        <div class="col-md-12 mb-3">
+          <label class="form-label">Address</label>
+          <textarea class="form-control" rows="2" placeholder="Enter address"></textarea>
+        </div>
+
+        <!-- Check-in -->
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Check-in Date</label>
+          <input type="date"  id="checkin" class="form-control" required>
+        </div>
+
+        <!-- Check-out -->
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Check-out Date</label>
+          <input type="date"  id="checkout" id="checkout"class="form-control" required>
+        </div>
+
+        <!-- Adults -->
+        <div class="col-md-6 mb-3">
+          <label class="form-label">No of Adults</label>
+          <input type="number" id="adults" class="form-control" min="1" placeholder="Enter number of adults" required>
+        </div>
+
+        <!-- Purpose -->
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Purpose of Visit</label>
+          <textarea class="form-control" id="purpose"  rows="1" placeholder="Business / Travel / Other"></textarea>
+        </div>
+
+      </div>
+
+      <!-- Submit Button -->
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary px-4">Submit</button>
+      </div>
+
+    </form>
+
+  </div>
+</div>
+<script>
+document.getElementById("guestForm").addEventListener("submit", function(e) {
+  let phone = document.querySelector("input[type='tel']").value;
+
+  if (phone.length !== 10) {
+    alert("Phone number must be 10 digits");
+    e.preventDefault();
+  }
+});
+   if (aadhar.length !== 12) {
+  alert("Aadhar must be 12 digits");
+}
+class CustomerFormHandler {
+
+  constructor(formId) {
+    this.form = document.getElementById(formId);
+
+    this.form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      if (this.validateForm()) {
+        this.saveToLocalStorage();
+        this.clearForm();
+        alert("Form submitted successfully ✅");
+      }
+    });
+  }
+
+  // ✅ Validate Form
+  validateForm() {
+    const name = this.form.querySelector("#name").value.trim();
+    const phone = this.form.querySelector("#phone").value.trim();
+    const email = this.form.querySelector("#email").value.trim();
+    const address = this.form.querySelector("#address").value.trim();
+    const aadhar = this.form.querySelector("#aadhar").value.trim();
+    const checkin = this.form.querySelector("#checkin").value;
+    const checkout = this.form.querySelector("#checkout").value;
+    const adults = this.form.querySelector("#adults").value;
+    const purpose = this.form.querySelector("#purpose").value.trim();
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // Name validation
+    if (name.length < 3) {
+      alert("Name must be at least 3 characters");
+      return false;
+    }
+
+    // Phone validation
+    if (!/^\d{10}$/.test(phone)) {
+      alert("Phone must be exactly 10 digits");
+      return false;
+    }
+
+    // Email validation
+    if (!emailRegex.test(email)) {
+      alert("Invalid email format");
+      return false;
+    }
+
+    // Address validation
+    if (address === "") {
+      alert("Address cannot be empty");
+      return false;
+    }
+
+    // Aadhar validation
+    if (!/^\d{12}$/.test(aadhar)) {
+      alert("Aadhar must be exactly 12 digits");
+      return false;
+    }
+
+    // Date validation
+    let today = new Date();
+    today.setHours(0,0,0,0);
+
+    let checkinDate = new Date(checkin);
+    let checkoutDate = new Date(checkout);
+
+    if (checkinDate < today) {
+      alert("Check-in date must be in the future");
+      return false;
+    }
+
+    if (checkoutDate <= checkinDate) {
+      alert("Check-out must be after check-in");
+      return false;
+    }
+
+    // Adults validation
+    if (adults <= 0 || isNaN(adults)) {
+      alert("Enter valid number of adults");
+      return false;
+    }
+
+    // Purpose validation
+    if (purpose === "") {
+      alert("Purpose of visit is required");
+      return false;
+    }
+
+    return true;
+  }
+
+  // ✅ Save Data to LocalStorage
+  saveToLocalStorage() {
+    const data = {
+      name: this.form.querySelector("#name").value,
+      phone: this.form.querySelector("#phone").value,
+      email: this.form.querySelector("#email").value,
+      address: this.form.querySelector("#address").value,
+      aadhar: this.form.querySelector("#aadhar").value,
+      checkin: this.form.querySelector("#checkin").value,
+      checkout: this.form.querySelector("#checkout").value,
+      adults: this.form.querySelector("#adults").value,
+      purpose: this.form.querySelector("#purpose").value
+    };
+
+    let records = JSON.parse(localStorage.getItem("customers")) || [];
+    records.push(data);
+
+    localStorage.setItem("customers", JSON.stringify(records));
+  }
+
+  // ✅ Clear Form
+  clearForm() {
+    this.form.reset();
+  }
+}
+
+// ✅ Initialize Class
+new CustomerFormHandler("guestForm");
+class CustomerFormHandler {
+
+  constructor(formId) {
+    this.form = document.getElementById(formId);
+    this.messageBox = document.getElementById("messageBox");
+
+    // ✅ Event Delegation (Form Submit)
+    this.form.addEventListener("submit", (e) => {
+      if (e.target.tagName === "FORM") {
+        e.preventDefault();
+
+        if (this.validateForm()) {
+          this.saveToLocalStorage();
+          this.clearForm();
+          this.showMessage("Form submitted successfully ✅", "success");
+        }
+      }
+    });
+
+    // ✅ Real-time Validation (input + blur)
+    this.form.addEventListener("input", (e) => {
+      this.validateField(e.target);
+    });
+
+    this.form.addEventListener("blur", (e) => {
+      this.validateField(e.target);
+    }, true);
+  }
+
+  // ✅ Reusable Message Box
+  showMessage(message, type) {
+    this.messageBox.innerHTML = `
+      <div class="alert alert-${type === "success" ? "success" : "danger"}">
+        ${message}
+      </div>
+    `;
+
+    // Auto hide after 3 sec
+    setTimeout(() => {
+      this.messageBox.innerHTML = "";
+    }, 3000);
+  }
+
+  // ✅ Validate Single Field (Real-time)
+  validateField(field) {
+    const value = field.value.trim();
+
+    switch (field.id) {
+
+      case "name":
+        if (value.length < 3) {
+          this.showMessage("Name must be at least 3 characters", "error");
+        }
+        break;
+
+      case "phone":
+        if (!/^\d{10}$/.test(value)) {
+          this.showMessage("Phone must be exactly 10 digits", "error");
+        }
+        break;
+
+      case "email":
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+          this.showMessage("Invalid email format", "error");
+        }
+        break;
+
+      case "aadhar":
+        if (!/^\d{12}$/.test(value)) {
+          this.showMessage("Aadhar must be 12 digits", "error");
+        }
+        break;
+
+      case "adults":
+        if (value <= 0 || isNaN(value)) {
+          this.showMessage("Enter valid number of adults", "error");
+        }
+        break;
+    }
+  }
+
+  // ✅ Full Form Validation
+  validateForm() {
+    const name = this.form.querySelector("#name").value.trim();
+    const phone = this.form.querySelector("#phone").value.trim();
+    const email = this.form.querySelector("#email").value.trim();
+    const address = this.form.querySelector("#address").value.trim();
+    const aadhar = this.form.querySelector("#aadhar").value.trim();
+    const checkin = this.form.querySelector("#checkin").value;
+    const checkout = this.form.querySelector("#checkout").value;
+    const adults = this.form.querySelector("#adults").value;
+    const purpose = this.form.querySelector("#purpose").value.trim();
+
+    let today = new Date();
+    today.setHours(0,0,0,0);
+
+    let checkinDate = new Date(checkin);
+    let checkoutDate = new Date(checkout);
+
+    if (name.length < 3) {
+      this.showMessage("Name must be at least 3 characters", "error");
+      return false;
+    }
+
+    if (!/^\d{10}$/.test(phone)) {
+      this.showMessage("Phone must be exactly 10 digits", "error");
+      return false;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      this.showMessage("Invalid email format", "error");
+      return false;
+    }
+
+    if (address === "") {
+      this.showMessage("Address is required", "error");
+      return false;
+    }
+
+    if (!/^\d{12}$/.test(aadhar)) {
+      this.showMessage("Aadhar must be 12 digits", "error");
+      return false;
+    }
+
+    if (checkinDate < today) {
+      this.showMessage("Check-in must be future date", "error");
+      return false;
+    }
+
+    if (checkoutDate <= checkinDate) {
+      this.showMessage("Check-out must be after check-in", "error");
+      return false;
+    }
+
+    if (adults <= 0 || isNaN(adults)) {
+      this.showMessage("Invalid number of adults", "error");
+      return false;
+    }
+
+    if (purpose === "") {
+      this.showMessage("Purpose is required", "error");
+      return false;
+    }
+
+    return true;
+  }
+
+  // ✅ Save to LocalStorage
+  saveToLocalStorage() {
+    const data = {
+      name: this.form.querySelector("#name").value,
+      phone: this.form.querySelector("#phone").value,
+      email: this.form.querySelector("#email").value,
+      address: this.form.querySelector("#address").value,
+      aadhar: this.form.querySelector("#aadhar").value,
+      checkin: this.form.querySelector("#checkin").value,
+      checkout: this.form.querySelector("#checkout").value,
+      adults: this.form.querySelector("#adults").value,
+      purpose: this.form.querySelector("#purpose").value
+    };
+
+    let records = JSON.parse(localStorage.getItem("customers")) || [];
+    records.push(data);
+
+    localStorage.setItem("customers", JSON.stringify(records));
+  }
+
+  // ✅ Clear Form
+  clearForm() {
+    this.form.reset();
+  }
+}
+
+// ✅ Initialize
+new CustomerFormHandler("guestForm");
+</script>
+
+</body>
+</html>
