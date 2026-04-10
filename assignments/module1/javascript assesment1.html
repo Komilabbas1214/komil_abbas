@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guest registration</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-dark text-light">
+<div class="container mt-5">
+<div class="card shadow p-4">
+
+<h3 class="text-center mb-4">Guest Registration</h3>
+
+<form id="guestform">
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+<label>Full name</label>
+<input type="text" id="name" class="form-control" required>
+</div>
+
+<div class="col-md-6 mb-3">
+<label>Phone</label>
+<input type="tel" id="phone" class="form-control" required>
+</div>
+
+<div class="col-md-6 mb-3">
+<label>Email</label>
+<input type="email" id="email" class="form-control" required>
+</div>
+
+<div class="col-md-6 mb-3">
+<label>Aadhar</label>
+<input type="text" id="aadhar" class="form-control" required>
+</div>
+
+<div class="col-md-12 mb-3">
+<label>Address</label>
+<textarea id="address" class="form-control" required></textarea>
+</div>
+
+<div class="col-md-6 mb-3">
+<label>Check-in</label>
+<input type="date" id="checkin" class="form-control" required>
+</div>
+
+<div class="col-md-6 mb-3">
+<label>Check-out</label>
+<input type="date" id="checkout" class="form-control" required>
+</div>
+
+<div class="col-md-6 mb-3">
+<label>Adults</label>
+<input type="number" id="adults" class="form-control" required>
+</div>
+
+<div class="col-md-6 mb-3">
+<label>Purpose</label>
+<input type="text" id="purpose" class="form-control">
+</div>
+
+</div>
+
+<div class="text-center">
+<button type="submit" class="btn btn-primary">Submit</button>
+</div>
+
+</form>
+
+<!-- TABLE -->
+<div class="mt-5">
+<h4 class="text-center">Guest List</h4>
+<table class="table table-dark">
+<thead>
+<tr>
+<th>Name</th>
+<th>Phone</th>
+<th>Email</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody id="guestTableBody"></tbody>
+</table>
+</div>
+
+</div>
+</div>
+
+<script>
+
+// VALIDATION CLASS
+class CustomerFormHandler {
+validateForm(name, phone, email, aadhar, address, checkin, checkout, adults, purpose) {
+
+if (name.length < 3) return false;
+if (phone.length !== 10) return false;
+if (!email.includes("@")) return false;
+if (aadhar.length !== 12) return false;
+if (address.length < 10) return false;
+if (new Date(checkin) >= new Date(checkout)) return false;
+if (adults <= 0) return false;
+if (purpose.length < 3) return false;
+
+return true;
+}
+}
+
+// SAVE FUNCTION
+function saveToLocalStorage(newData) {
+let data = localStorage.getItem("guests");
+let arr = data ? JSON.parse(data) : [];
+
+arr.push(newData);
+
+localStorage.setItem("guests", JSON.stringify(arr));
+}
+
+// DISPLAY FUNCTION
+function displayGuests() {
+let data = JSON.parse(localStorage.getItem("guests")) || [];
+
+let tbody = document.getElementById("guestTableBody");
+tbody.innerHTML = "";
+
+data.forEach((guest, index) => {
+tbody.innerHTML += `
+<tr>
+<td>${guest.name}</td>
+<td>${guest.phone}</td>
+<td>${guest.email}</td>
+<td>
+<button onclick="deleteGuest(${index})" class="btn btn-danger btn-sm">
+Delete
+</button>
+</td>
+</tr>
+`;
+});
+}
+
+// DELETE FUNCTION
+function deleteGuest(index) {
+let data = JSON.parse(localStorage.getItem("guests")) || [];
+
+data.splice(index, 1);
+
+localStorage.setItem("guests", JSON.stringify(data));
+
+displayGuests();
+}
+
+// FORM SUBMIT
+const form = document.getElementById("guestform");
+
+form.addEventListener("submit", function (e) {
+e.preventDefault();
+
+let name = document.getElementById("name").value;
+let phone = document.getElementById("phone").value;
+let email = document.getElementById("email").value;
+let aadhar = document.getElementById("aadhar").value;
+let address = document.getElementById("address").value;
+let checkin = document.getElementById("checkin").value;
+let checkout = document.getElementById("checkout").value;
+let adults = document.getElementById("adults").value;
+let purpose = document.getElementById("purpose").value;
+
+let guestData = { name, phone, email, aadhar, address, checkin, checkout, adults, purpose };
+
+let handler = new CustomerFormHandler();
+let isValid = handler.validateForm(name, phone, email, aadhar, address, checkin, checkout, adults, purpose);
+
+if (!isValid) {
+alert("Invalid Data ❌");
+return;
+}
+
+saveToLocalStorage(guestData);
+displayGuests();
+
+form.reset();
+});
+
+// PAGE LOAD
+displayGuests();
+
+</script>
+
+</body>
+</html>
