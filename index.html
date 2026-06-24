@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creator Bio-Stack Builder - Custom Link-In-Bio Builder</title>
+  <meta name="description" content="Build, customize, and manage your premium mobile-first bio-link stack with real-time responsive previews, theme toggles, and live creator verification.">
+  
+  <!-- Sleek Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Styling -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Premium Header -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="logo">
+        <div class="logo-icon"><i class="fa-solid fa-layer-group"></i></div>
+        <h1>Bio-Stack <span>Builder</span></h1>
+      </div>
+      
+      <div class="header-controls">
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle between dark and light mode">
+          <i class="fa-solid fa-moon icon-dark"></i>
+          <i class="fa-solid fa-sun icon-light"></i>
+        </button>
+        <span class="badge-status">Developer Assessment A1</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Core App Grid -->
+  <main class="app-container">
+    
+    <!-- Mobile View Preview Toggle (Tab-based design for mobile layout) -->
+    <div class="view-toggle-tabs">
+      <button id="tab-editor" class="tab-btn active"><i class="fa-solid fa-pen-to-square"></i> Editor</button>
+      <button id="tab-preview" class="tab-btn"><i class="fa-solid fa-mobile-screen-button"></i> Live Preview</button>
+    </div>
+
+    <!-- Left Column: Creator Customization Dashboard -->
+    <section id="dashboard-pane" class="dashboard-pane">
+      
+      <!-- Section 1: Profile Customizer -->
+      <div class="dashboard-card" id="profile-customizer-card">
+        <div class="card-header">
+          <span class="card-num">01</span>
+          <h2>Customize Creator Profile</h2>
+        </div>
+        <div class="card-body">
+          <div class="profile-edit-grid">
+            <!-- Left: Avatar Preview & Preset Picker -->
+            <div class="avatar-edit-section">
+              <div class="avatar-container">
+                <img id="avatar-preview-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="Avatar Preview">
+                <span id="avatar-fallback" class="avatar-fallback hidden">JS</span>
+              </div>
+              <div class="avatar-presets">
+                <label class="field-label">Preset Avatar</label>
+                <div class="preset-dots">
+                  <button class="preset-dot active" data-url="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" style="background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=40&auto=format&fit=crop&q=80')"></button>
+                  <button class="preset-dot" data-url="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&auto=format&fit=crop&q=80')"></button>
+                  <button class="preset-dot" data-url="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&auto=format&fit=crop&q=80')"></button>
+                  <button class="preset-dot" data-url="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80" style="background-image: url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=40&auto=format&fit=crop&q=80')"></button>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Right: Fields -->
+            <div class="profile-fields-section">
+              <div class="form-group">
+                <label for="input-creator-name" class="field-label">Creator Name</label>
+                <div class="input-wrapper">
+                  <span class="input-prefix">@</span>
+                  <input type="text" id="input-creator-name" class="form-input" placeholder="alex_dev" value="alex_dev">
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="input-creator-bio" class="field-label">Bio Description</label>
+                <textarea id="input-creator-bio" class="form-input text-area" placeholder="Write a short description..." rows="2">Digital Creator • Building interactive web experiences with modern JavaScript modules.</textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Row: Followers (Threshold Trigger) & Avatar Custom Link -->
+          <div class="profile-extra-grid">
+            <div class="form-group">
+              <label for="input-avatar-url" class="field-label">Custom Avatar URL</label>
+              <input type="url" id="input-avatar-url" class="form-input" placeholder="https://example.com/avatar.jpg">
+            </div>
+
+            <div class="form-group">
+              <div class="label-flex">
+                <label for="input-follower-count" class="field-label">Followers Count</label>
+                <span id="follower-threshold-hint" class="threshold-hint">(Unlocks Verified Badge at 5,000)</span>
+              </div>
+              <div class="follower-control-row">
+                <input type="range" id="slider-follower-count" min="0" max="10000" step="100" value="4800" class="range-slider">
+                <input type="number" id="input-follower-count" min="0" max="1000000" value="4800" class="form-input follower-num-input">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2: Link Creator Form -->
+      <div class="dashboard-card" id="link-creator-card">
+        <div class="card-header">
+          <span class="card-num">02</span>
+          <h2>Add New Link</h2>
+        </div>
+        <div class="card-body">
+          <form id="form-add-link" novalidate>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="input-link-title" class="field-label">Link Title</label>
+                <div class="input-wrapper">
+                  <span class="input-prefix"><i class="fa-solid fa-tag"></i></span>
+                  <input type="text" id="input-link-title" class="form-input" placeholder="e.g. My Personal Portfolio" required>
+                </div>
+                <div id="error-link-title" class="error-message"></div>
+              </div>
+
+              <div class="form-group">
+                <label for="input-link-url" class="field-label">Destination URL</label>
+                <div class="input-wrapper">
+                  <span class="input-prefix"><i class="fa-solid fa-link"></i></span>
+                  <input type="url" id="input-link-url" class="form-input" placeholder="e.g. https://myportfolio.com" required>
+                </div>
+                <div id="error-link-url" class="error-message"></div>
+              </div>
+            </div>
+            
+            <button type="submit" id="btn-submit-link" class="btn-submit">
+              <i class="fa-solid fa-plus-circle"></i> Add to Stack
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Section 3: Link Manager List & Analytics -->
+      <div class="dashboard-card" id="link-manager-card">
+        <div class="card-header">
+          <span class="card-num">03</span>
+          <h2>Manage Links Stack</h2>
+          <span id="links-count" class="badge-count">0 links</span>
+        </div>
+        <div class="card-body">
+          <!-- Active Links List -->
+          <div id="editor-links-list" class="editor-links-list">
+            <!-- Dynamic placeholder if empty -->
+            <div class="empty-state">
+              <i class="fa-regular fa-folder-open empty-icon"></i>
+              <p>Your Bio-Stack is empty.</p>
+              <span>Add social links above to start customizing.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Analytics Card (Bonus SaaS feature) -->
+      <div class="dashboard-card analytics-card">
+        <div class="card-header">
+          <span class="card-num">04</span>
+          <h2>Stack Analytics</h2>
+          <button id="btn-reset-analytics" class="btn-reset-text" title="Reset all counter clicks"><i class="fa-solid fa-rotate-left"></i> Reset Clicks</button>
+        </div>
+        <div class="card-body">
+          <div class="analytics-grid">
+            <div class="stat-card">
+              <span class="stat-label">Total Clicks</span>
+              <span id="stat-total-clicks" class="stat-val">0</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Avg. Clicks/Link</span>
+              <span id="stat-avg-clicks" class="stat-val">0.0</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Most Clicked Link</span>
+              <span id="stat-top-link" class="stat-val">-</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Right Column: Interactive Smartphone Device Preview -->
+    <section id="preview-pane" class="preview-pane">
+      <div class="sticky-preview-container">
+        
+        <!-- Smartphone Container -->
+        <div class="smartphone-frame">
+          <div class="speaker-notch"></div>
+          <div class="camera-lens"></div>
+          <div class="volume-up"></div>
+          <div class="volume-down"></div>
+          <div class="power-btn"></div>
+          
+          <!-- Smartphone Screen -->
+          <div id="phone-screen" class="phone-screen">
+            
+            <!-- Live Preview Bio Page -->
+            <div class="bio-preview-page">
+              
+              <!-- Avatar Profile Header -->
+              <div class="bio-header">
+                <div class="preview-avatar-wrapper">
+                  <img id="preview-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="Avatar">
+                  <span id="preview-avatar-fallback" class="preview-avatar-fallback hidden">AD</span>
+                </div>
+                
+                <div class="preview-name-container">
+                  <span id="preview-name" class="preview-name">@alex_dev</span>
+                  <!-- Live Verification Badge (Conditional Node) -->
+                  <span id="preview-verified-badge" class="verified-badge" title="Verified Creator">
+                    <i class="fa-solid fa-circle-check"></i>
+                  </span>
+                </div>
+                
+                <p id="preview-bio" class="preview-bio">Digital Creator • Building interactive web experiences with modern JavaScript modules.</p>
+                
+                <div class="preview-follower-badge">
+                  <i class="fa-solid fa-users"></i> <span id="preview-follower-count">4.8k</span> followers
+                </div>
+              </div>
+              
+              <!-- Live Preview Buttons Container -->
+              <div id="preview-links-container" class="preview-links-container">
+                <!-- Buttons dynamically loaded here -->
+              </div>
+              
+              <!-- Simulated Mobile Page Footer -->
+              <div class="bio-footer">
+                <span class="footer-logo"><i class="fa-solid fa-layer-group"></i> Bio-Stack</span>
+                <span class="footer-terms">Create your profile stack instantly</span>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+        <!-- Hint banner -->
+        <div class="preview-hint-banner">
+          <i class="fa-solid fa-info-circle"></i>
+          <span>Click links in the preview to simulate viewer clicks & track live analytics!</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    <div class="footer-container">
+      <p>© 2026 TOPS Technologies Assessment • Social Bio Link Builder (Creator Profile)</p>
+      <div class="tech-tags">
+        <span>HTML5 Semantic</span>
+        <span>CSS Variables</span>
+        <span>ES6 Modules</span>
+        <span>LocalStorage API</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript App Entry -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
